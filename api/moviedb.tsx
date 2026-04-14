@@ -1,7 +1,7 @@
 import axios from 'axios';
 const API_KEY = (process.env.EXPO_PUBLIC_API_KEY || process.env.API_KEY || '').trim();
 
-//endpoints
+// Base endpoints for list/search APIs.
 const apiBaseUrl = 'https://api.themoviedb.org/3';
 const trendingMoviesEndpoint = `${apiBaseUrl}/trending/movie/day`;
 const upcomingMoviesEndpoint = `${apiBaseUrl}/movie/upcoming`;
@@ -12,7 +12,7 @@ const topRatedSeriesEndpoint = `${apiBaseUrl}/tv/top_rated`;
 const searchMoviesEndpoint = `${apiBaseUrl}/search/movie`;
 
 
-//dynamic endpoints
+// Dynamic endpoints for details/credits/videos by content ID.
 const movieDetailsEndpoint = (id: number) => `${apiBaseUrl}/movie/${id}?api_key=${API_KEY}`;
 const movieCreditsEndpoint = (id: number) => `${apiBaseUrl}/movie/${id}/credits?api_key=${API_KEY}`;
 const similarMoviesEndpoint = (id: number) => `${apiBaseUrl}/movie/${id}/similar?api_key=${API_KEY}`;
@@ -42,6 +42,7 @@ const apiCall = async (endpoint: string, params?: Record<string, string | number
         return {};
     }
 
+    // Keep auth and query handling centralized so all wrappers behave consistently.
     const options = {
         method: 'GET',
         url: endpoint,
@@ -63,6 +64,7 @@ const apiCall = async (endpoint: string, params?: Record<string, string | number
 export const fetchTrendingMovies = (page = 1) => {
     return apiCall(trendingMoviesEndpoint, { page });
 }
+// The functions below are thin wrappers around apiCall and map one app feature to one TMDB endpoint.
 export const fetchUpcomingMovies = (page = 1) => {
     return apiCall(upcomingMoviesEndpoint, { page });
 }

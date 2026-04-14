@@ -64,6 +64,7 @@ const MovieDetails = () => {
         }
         setErrorMessage('');
         setLoading(true);
+        // All detail sections are loaded independently so partial data can still render.
         getMovieDetails(parsedId);
         getMovieCredits(parsedId);
         getSimilarMovies(parsedId);
@@ -97,6 +98,7 @@ const MovieDetails = () => {
     }
 
     const getMovieTrailer = async (id: number) => {
+        // Prefer official trailer, then fallback to any YouTube video for better watch coverage.
         const data = mediaType === 'tv' ? await fetchSeriesVideos(id) : await fetchMovieVideos(id);
         const videos = data?.results ?? [];
         const trailer =

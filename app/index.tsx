@@ -14,6 +14,7 @@ type ContentType = 'movie' | 'tv';
 type FilterType = 'all' | 'trending' | 'secondary' | 'top_rated';
 
 const HomeScreen = () => {
+    // Home keeps separate buckets for movies and TV, then filters what is rendered.
     const [movieTrending, setMovieTrending] = useState<any[]>([]);
     const [movieUpcoming, setMovieUpcoming] = useState<any[]>([]);
     const [movieTopRated, setMovieTopRated] = useState<any[]>([]);
@@ -39,6 +40,7 @@ const HomeScreen = () => {
     }, [homeError]);
 
     const loadHomeData = async (isRefreshing = false) => {
+        // Fetch all sections in parallel so the home screen appears quickly.
         if (isRefreshing) setRefreshing(true);
         else setLoading(true);
         setHomeError('');
@@ -115,6 +117,7 @@ const HomeScreen = () => {
     }
 
     const isMovie = contentType === 'movie';
+    // Derived data used by the toggle + filter chips.
     const primaryTrending = isMovie ? movieTrending : tvTrending;
     const secondaryList = isMovie ? movieUpcoming : tvAiringToday;
     const topRatedList = isMovie ? movieTopRated : tvTopRated;
