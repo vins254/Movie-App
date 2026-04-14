@@ -21,6 +21,43 @@ A modern mobile movie/series discovery app powered by TMDB APIs, built with Expo
 - In-app trailer playback screen with fallback handling.
 - Home shortcuts and quick actions (menu/search/home buttons).
 
+## Screenshots
+
+### 1) Home Dashboard
+![Home Dashboard](Screenshots/Home_Dashboard.jpg)
+
+The landing screen that introduces the app layout. It highlights trending content first, then provides section-based browsing with quick access to search and menu actions.
+
+### 2) Movies Toggle View
+![Movies Toggle](Screenshots/Movie_toggle.jpg)
+
+Shows the Home screen in **Movies** mode, where users can filter and browse movie-specific sections like Trending, Upcoming, and Top Rated.
+
+### 3) Series Toggle View
+![Series Toggle](Screenshots/Series_toggle.jpg)
+
+Shows the Home screen in **Series** mode, where the same filtering system is applied to TV content (Trending, Airing Today, Top Rated).
+
+### 4) Search Screen
+![Search Screen](Screenshots/Search_screen.jpg)
+
+Dedicated screen for finding titles quickly. It supports debounced search input, loading placeholders, and clean result cards for fast navigation.
+
+### 5) Movie Details
+![Movie Details](Screenshots/Movie_details.jpg)
+
+Provides full title context including metadata, overview, cast, similar titles, and trailer access from one screen.
+
+### 6) Watch Trailer
+![Watch Trailer](Screenshots/Watch_trailer.jpg)
+
+In-app trailer playback view using WebView. Users can watch without leaving the app, with fallback behavior for restricted videos.
+
+### 7) Profile Details
+![Profile Details](Screenshots/Profile_details.jpg)
+
+Person profile page opened from cast members. It shows actor details, biography, and related credited titles.
+
 ## Tech Stack
 
 - **Framework:** Expo SDK 54
