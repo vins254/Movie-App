@@ -24,37 +24,37 @@ A modern mobile movie/series discovery app powered by TMDB APIs, built with Expo
 ## Screenshots
 
 ### 1) Home Dashboard
-![Home Dashboard](Screenshots/Home_Dashboard.jpg)
+<img src="Screenshots/Home_Dashboard.jpg" alt="Home Dashboard" width="320" />
 
 The landing screen that introduces the app layout. It highlights trending content first, then provides section-based browsing with quick access to search and menu actions.
 
 ### 2) Movies Toggle View
-![Movies Toggle](Screenshots/Movie_toggle.jpg)
+<img src="Screenshots/Movie_toggle.jpg" alt="Movies Toggle" width="320" />
 
 Shows the Home screen in **Movies** mode, where users can filter and browse movie-specific sections like Trending, Upcoming, and Top Rated.
 
 ### 3) Series Toggle View
-![Series Toggle](Screenshots/Series_toggle.jpg)
+<img src="Screenshots/Series_toggle.jpg" alt="Series Toggle" width="320" />
 
 Shows the Home screen in **Series** mode, where the same filtering system is applied to TV content (Trending, Airing Today, Top Rated).
 
 ### 4) Search Screen
-![Search Screen](Screenshots/Search_screen.jpg)
+<img src="Screenshots/Search_screen.jpg" alt="Search Screen" width="320" />
 
 Dedicated screen for finding titles quickly. It supports debounced search input, loading placeholders, and clean result cards for fast navigation.
 
 ### 5) Movie Details
-![Movie Details](Screenshots/Movie_details.jpg)
+<img src="Screenshots/Movie_details.jpg" alt="Movie Details" width="320" />
 
 Provides full title context including metadata, overview, cast, similar titles, and trailer access from one screen.
 
 ### 6) Watch Trailer
-![Watch Trailer](Screenshots/Watch_trailer.jpg)
+<img src="Screenshots/Watch_trailer.jpg" alt="Watch Trailer" width="320" />
 
 In-app trailer playback view using WebView. Users can watch without leaving the app, with fallback behavior for restricted videos.
 
 ### 7) Profile Details
-![Profile Details](Screenshots/Profile_details.jpg)
+<img src="Screenshots/Profile_details.jpg" alt="Profile Details" width="320" />
 
 Person profile page opened from cast members. It shows actor details, biography, and related credited titles.
 
