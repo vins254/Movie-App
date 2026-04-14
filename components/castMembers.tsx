@@ -1,6 +1,8 @@
+import { fallbackPersonImage, image185 } from '@/api/moviedb';
 import { useRouter } from 'expo-router';
 import React from 'react';
 import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+
 const CastMembers = ({ cast }: { cast: any[] }) => {
     const router = useRouter();
     let personName = 'Keanu Reevs';
@@ -24,28 +26,29 @@ const CastMembers = ({ cast }: { cast: any[] }) => {
                             <TouchableOpacity
                                 key={index}
                                 className='mr-4 items-center'
-                                onPress={() =>
+                                onPress={() => {
+                                    if (!person?.id) return;
                                     router.push({
                                         pathname: '/personDetails',
-                                        params: { id: String(index) },
-                                    })
-                                }
+                                        params: { id: String(person.id) },
+                                    });
+                                }}
                             >
                                 <View className='overflow-hidden rounded-full h-20 w-20 items-center border border-neutral-500'>
                                     <Image
                                         className='rounded-2xl h-24 w-20'
-                                        source={require('../assets/images/movie_poster1.png')}
+                                        source={{uri: image185(person?.profile_path) || fallbackPersonImage}}
                                     />
                                 </View>
                                 <Text className='text-white text-xs mt-1'>
                                     {
-                                        characterName.length > 10 ? characterName.slice(0, 10) + '...' : characterName
+                                        (person?.character || '').length > 10 ? person?.character.slice(0, 10) + '...' : person?.character
                                     }
 
                                 </Text>
                                 <Text className='text-neutral-400 text-xs mt-1'>
                                     {
-                                        personName.length > 10 ? personName.slice(0, 10) + '...' : personName
+                                        (person?.original_name || '').length > 10 ? person?.original_name.slice(0, 10) + '...' : person?.original_name
                                     }
 
                                 </Text>

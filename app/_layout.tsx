@@ -23,6 +23,8 @@ export default function RootLayout() {
         <Stack.Screen name="movieDetails" options={{ headerShown: false }} />
         <Stack.Screen name="personDetails" options={{ headerShown: false }} />
         <Stack.Screen name="searchScreen" options={{ headerShown: false }} />
+        <Stack.Screen name="seeAll" options={{ headerShown: false }} />
+        <Stack.Screen name="watchTrailer" options={{ headerShown: false }} />
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>
