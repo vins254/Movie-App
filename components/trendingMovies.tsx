@@ -16,6 +16,7 @@ const TrendingMovies = ({ data }: { data: any[] }) => {
     const router = useRouter();
 
     const handleClick = (item: any) => {
+        // Carousel cards route to the shared details screen.
         if (!item?.id) return;
         router.push({
             pathname: '/movieDetails',

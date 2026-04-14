@@ -5,11 +5,7 @@ import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
 const CastMembers = ({ cast }: { cast: any[] }) => {
     const router = useRouter();
-    let personName = 'Keanu Reevs';
-    let characterName = 'John Wick';
-
-
-
+    
     return (
         <View className='my-6'>
             <Text className='text-white text-lg mx-4 mb-5'>
@@ -28,6 +24,7 @@ const CastMembers = ({ cast }: { cast: any[] }) => {
                                 className='mr-4 items-center'
                                 onPress={() => {
                                     if (!person?.id) return;
+                                    // Opens the dedicated person profile page with TMDB person id.
                                     router.push({
                                         pathname: '/personDetails',
                                         params: { id: String(person.id) },

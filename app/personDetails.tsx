@@ -42,7 +42,7 @@ const PersonDetails = () => {
 
     useEffect(()=> {
         setLoading(true);
-        //console.log('person: ',item);
+        // Route param is validated before hitting API to prevent invalid requests.
         const parsedId = typeof item?.id === 'string' ? Number(item.id) : item?.id;
         if (!parsedId || Number.isNaN(parsedId)) {
             setLoading(false);
@@ -64,7 +64,7 @@ const PersonDetails = () => {
 
     const getPersonMovies = async (id: number) => {
         const data = await fetchPersonMovies(id);
-        //console.log('got person movies: ',data);
+        // Person movie credits power the "Movies" strip at the bottom.
         if(data && data.cast) setPersonMovies(data.cast);
     }
 

@@ -16,6 +16,7 @@ interface MovieListProps {
 const MovieList: React.FC<MovieListProps> = ({ title, data, hideSeeAll, seeAllCategory }) => {
     const router = useRouter();
     const handleMoviePress = (item: any) => {
+        // Skip navigation for placeholder/incomplete items that have no ID.
         if (!item?.id) return;
         router.push({
             pathname: '/movieDetails',
@@ -30,6 +31,7 @@ const MovieList: React.FC<MovieListProps> = ({ title, data, hideSeeAll, seeAllCa
                     {title}
                 </Text>
                 {
+                    // See All is optional because some sections (e.g., Similar Movies) stay inline only.
                     !hideSeeAll && seeAllCategory && (
                         <TouchableOpacity
                             onPress={() =>

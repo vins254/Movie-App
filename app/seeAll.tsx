@@ -18,6 +18,7 @@ type SeeAllRouteParams = {
 
 const CARD_HEIGHT = height * 0.3 + 46;
 
+// Memoized card keeps FlatList updates fast on long infinite-scroll feeds.
 const MovieGridCard = React.memo(({ item, onPress }: { item: any; onPress: (item: any) => void }) => {
     return (
         <TouchableWithoutFeedback onPress={() => onPress(item)}>
@@ -55,6 +56,7 @@ const SeeAll = () => {
     const screenTitle = params?.title || 'Movies';
 
     useEffect(() => {
+        // Reset pagination when category changes (e.g., Movie Top Rated -> TV Trending).
         setMovies([]);
         setPage(1);
         setTotalPages(1);
@@ -78,6 +80,7 @@ const SeeAll = () => {
         else data = await fetchTrendingSeries(targetPage);
 
         if (data?.results) {
+            // Normalize item shape so downstream screens can route by media_type.
             const mediaType = params?.category?.startsWith('tv_') ? 'tv' : 'movie';
             const normalized = data.results.map((item: any) => ({ ...item, media_type: mediaType }));
             setMovies((prev) => (reset ? normalized : [...prev, ...normalized]));
@@ -92,6 +95,7 @@ const SeeAll = () => {
     };
 
     const loadMoreMovies = useCallback(() => {
+        // Guard against duplicate requests and stop at API last page.
         if (loading || loadingMore) return;
         if (page >= totalPages) return;
         loadMovies(page + 1);

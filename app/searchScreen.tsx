@@ -31,6 +31,7 @@ const SearchScreen = () => {
     };
 
     useEffect(() => {
+        // Lightweight pulse animation for skeleton placeholders while searching.
         const loop = Animated.loop(
             Animated.sequence([
                 Animated.timing(skeletonOpacity, {
@@ -58,6 +59,7 @@ const SearchScreen = () => {
     const handleSearch = async (value: string) => {
         //console.log('value: ', value);
         setSearchError('');
+        // Minimum query length avoids noisy API calls and improves result relevance.
         if (value && value.length>2){
             setLoading(true);
             try {
